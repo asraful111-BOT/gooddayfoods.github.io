@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good Day Foods Ltd. | Export Quality Food Manufacturer</title>
+    <!-- Snipcart CSS -->
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.2.0/default/snipcart.css" />
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #1a5f7a 0%, #2c3e50 100%);
+            color: white;
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: #ffd700;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+
+        .cart-btn {
+            background: #ff6b6b;
+            border: none;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .cart-btn:hover {
+            background: #ff5252;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9)), 
+                        url('https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 6rem 0;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.2rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .tagline {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff8a00 0%, #e52e71 100%);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 6px 20px rgba(229, 46, 113, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(229, 46, 113, 0.4);
+        }
+
+        /* Products Section */
+        .products {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #ff8a00, #e52e71);
+            border-radius: 2px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.4s, box-shadow 0.4s;
+            border: 1px solid #f0f0f0;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.8rem;
+        }
+
+        .product-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: #2c3e50;
+        }
+
+        .product-info p {
+            color: #666;
+            margin-bottom: 1.2rem;
+            font-size: 0.95rem;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #e52e71;
+            margin-bottom: 1.2rem;
+        }
+
+        .price span {
+            font-size: 0.9rem;
+            color: #777;
+            font-weight: normal;
+        }
+
+        .product-features {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+        }
+
+        .feature-tag {
+            background: #f0f7ff;
+            color: #1a5f7a;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.3rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #555;
+            font-size: 1.05rem;
+        }
+
+        .certifications {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .cert {
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            min-width: 150px;
+        }
+
+        .cert i {
+            font-size: 2rem;
+            color: #1a5f7a;
+            margin-bottom: 0.8rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-content h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.3rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-item i {
+            font-size: 2.5rem;
+            color: #1a5f7a;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item h3 {
+            margin-bottom: 0.8rem;
+            color: #2c3e50;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1a5f7a 0%, #2c3e50 100%);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            color: #ffd700;
+        }
+
+        .footer-links a {
+            display: block;
+            color: #ddd;
+            text-decoration: none;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #ffd700;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .tagline {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container navbar">
+            <a href="/" class="logo">
+                <i class="fas fa-utensils"></i>
+                Good Day Foods Ltd.
+            </a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#products">Products</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <button class="cart-btn snipcart-checkout">
+                    <i class="fas fa-shopping-cart"></i>
+                    Cart <span class="snipcart-items-count">0</span>
+                </button>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h1>Premium Food Products from Bangladesh to the World</h1>
+            <div class="tagline">
+                <div class="tag">Halal Certified</div>
+                <div class="tag">ISO 22000:2018</div>
+                <div class="tag">100% Natural</div>
+                <div class="tag">Worldwide Export</div>
+            </div>
+            <p>We manufacture and export premium quality food products with international standards. Trusted by clients across 20+ countries.</p>
+            <a href="#products" class="btn">Explore Our Products</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; color: #666; font-size: 1.1rem;">
+                We offer a wide range of food products manufactured in our state-of-the-art facility in Bangladesh.
+            </p>
+            
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Premium Biscuits" class="product-img">
+                    <div class="product-info">
+                        <h3>Premium Biscuits</h3>
+                        <p>Export quality biscuits in various flavors. Perfect for retail and wholesale distribution.</p>
+                        <div class="price">$12.00 <span>/ 5kg box</span></div>
+                        <div class="product-features">
+                            <span class="feature-tag">Halal</span>
+                            <span class="feature-tag">Shelf-stable</span>
+                            <span class="feature-tag">12 packs/box</span>
+                        </div>
+                        <button class="btn snipcart-add-item"
+                            data-item-id="biscuit-001"
+                            data-item-name="Premium Biscuits"
+                            data-item-price="12.00"
+                            data-item-url="/"
+                            data-item-image="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            data-item-description="Export quality biscuits, 5kg box, various flavors"
+                            data-item-weight="5000"
+                            data-item-custom1-name="Flavor"
+                            data-item-custom1-options="Chocolate|Vanilla|Strawberry|Mix"
+                            data-item-custom1-value="Mix"
+                            style="width: 100%; margin-top: 1rem;">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1628992682633-bf2d40cb595f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Mango Juice" class="product-img">
+                    <div class="product-info">
+                        <h3>Mango Juice Concentrate</h3>
+                        <p>100% natural mango juice concentrate with no preservatives or artificial colors.</p>
+                        <div class="price">$25.00 <span>/ 10L can</span></div>
+                        <div class="product-features">
+                            <span class="feature-tag">100% Natural</span>
+                            <span class="feature-tag">No Preservatives</span>
+                            <span class="feature-tag">Concentrated</span>
+                        </div>
+                        <button class="btn snipcart-add-item"
+                            data-item-id="juice-001"
+                            data-item-name="Mango Juice Concentrate"
+                            data-item-price="25.00"
+                            data-item-url="/"
+                            data-item-image="https://images.unsplash.com/photo-1628992682633-bf2d40cb595f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            data-item-description="100% natural mango juice concentrate, 10L can"
+                            data-item-weight="10000"
+                            data-item-custom1-name="Packaging"
+                            data-item-custom1-options="Can|PET Bottle|Tetra Pak"
+                            data-item-custom1-value="Can"
+                            style="width: 100%; margin-top: 1rem;">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Potato Chips" class="product-img">
+                    <div class="product-info">
+                        <h3>Potato Chips</h3>
+                        <p>Premium quality potato chips with various flavor options. Crunchy and delicious.</p>
+                        <div class="price">$8.50 <span>/ 2kg bag</span></div>
+                        <div class="product-features">
+                            <span class="feature-tag">Crunchy</span>
+                            <span class="feature-tag">Multiple Flavors</span>
+                            <span class="feature-tag">Long Shelf Life</span>
+                        </div>
+                        <button class="btn snipcart-add-item"
+                            data-item-id="chips-001"
+                            data-item-name="Potato Chips"
+                            data-item-price="8.50"
+                            data-item-url="/"
+                            data-item-image="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            data-item-description="Premium potato chips, 2kg bag, various flavors"
+                            data-item-weight="2000"
+                            data-item-custom1-name="Flavor"
+                            data-item-custom1-options="Original|BBQ|Sour Cream|Salt & Vinegar"
+                            data-item-custom1-value="Original"
+                            style="width: 100%; margin-top: 1rem;">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Why Choose Good Day Foods?</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Leading Food Manufacturer & Exporter</h2>
+                    <p>Good Day Foods Ltd. is a premier food manufacturing company based in Bangladesh, specializing in producing high-quality food products for international markets.</p>
+                    <p>With our state-of-the-art manufacturing facility and strict quality control processes, we ensure that every product meets international standards.</p>
+                    <p>We export to over 20 countries including UAE, Saudi Arabia, Malaysia, USA, UK, and Canada.</p>
+                    
+                    <div class="certifications">
+                        <div class="cert">
+                            <i class="fas fa-certificate"></i>
+                            <p>Halal Certified</p>
+                        </div>
+                        <div class="cert">
+                            <i class="fas fa-award"></i>
+                            <p>ISO 22000:2018</p>
+                        </div>
+                        <div class="cert">
+                            <i class="fas fa-globe"></i>
+                            <p>Worldwide Export</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-text">
+                    <h2>Our Capabilities</h2>
+                    <p><i class="fas fa-check" style="color: #4CAF50;"></i> Monthly production capacity: 500+ tons</p>
+                    <p><i class="fas fa-check" style="color: #4CAF50;"></i> Custom formulation and private labeling</p>
+                    <p><i class="fas fa-check" style="color: #4CAF50;"></i> MOQ as low as 100kg per product</p>
+                    <p><i class="fas fa-check" style="color: #4CAF50;"></i> Comprehensive export documentation</p>
+                    <p><i class="fas fa-check" style="color: #4CAF50;"></i> FOB, CIF, and EXW terms available</p>
+                    <p><i class="fas fa-check" style="color: #4CAF50;"></i> Food grade packaging options</p>
+                    
+                    <a href="#contact" class="btn" style="margin-top: 2rem;">Request Sample</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="section-title">Contact Us</h2>
+                <p style="font-size: 1.1rem; color: #666; max-width: 700px; margin: 0 auto 2rem;">
+                    Ready to place an order or need more information? Contact our export team for samples, pricing, and delivery details.
+                </p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>export@gooddayfoods.com</p>
+                        <p>info@gooddayfoods.com</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <h3>Phone</h3>
+                        <p>+880 XXXX XXX XXX</p>
+                        <p>+880 XXXX XXX XXX (WhatsApp)</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Factory Address</h3>
+                        <p>Good Day Foods Ltd.</p>
+                        <p>Industrial Zone, Dhaka, Bangladesh</p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 3rem; padding: 2rem; background: #f8f9fa; border-radius: 10px;">
+                    <h3 style="color: #2c3e50; margin-bottom: 1rem;">Export Information</h3>
+                    <p><strong>Minimum Order:</strong> 100kg per product</p>
+                    <p><strong>Lead Time:</strong> 15-30 days after order confirmation</p>
+                    <p><strong>Payment Terms:</strong> T/T, L/C, PayPal, Credit Card</p>
+                    <p><strong>Shipping:</strong> FOB Chittagong, Bangladesh</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Good Day Foods Ltd.</h3>
+                    <p>Premium food manufacturer and exporter from Bangladesh. Delivering quality since 2010.</p>
+                    <div style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+                        <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <div class="footer-links">
+                        <a href="#home">Home</a>
+                        <a href="#products">Products</a>
+                        <a href="#about">About Us</a>
+                        <a href="#contact">Contact</a>
+                        <a href="#">Export Policy</a>
+                        <a href="#">Quality Assurance</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Products</h3>
+                    <div class="footer-links">
+                        <a href="#">Biscuits & Cookies</a>
+                        <a href="#">Juices & Drinks</a>
+                        <a href="#">Snacks & Chips</a>
+                        <a href="#">Ready-to-Eat</a>
+                        <a href="#">Spices & Seasonings</a>
+                        <a href="#">Private Label</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 Good Day Foods Ltd. All rights reserved. | ISO 22000:2018 Certified | Halal Certified</p>
+                <p style="margin-top: 0.5rem;">Designed for Export Excellence</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Snipcart Integration -->
+    <script async src="https://cdn.snipcart.com/themes/v3.2.0/default/snipcart.js"></script>
+    <div hidden id="snipcart" 
+         data-api-key="YOUR_SNIPCART_API_KEY_HERE"
+         data-config-add-product-behavior="none"
+         data-config-modal-style="side"></div>
+    
+    <!-- Custom Script -->
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+                });
+            }
+            
+            // Close mobile menu on link click
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        navLinks.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
